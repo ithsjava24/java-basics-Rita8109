@@ -69,7 +69,7 @@ public class App {
         int indexMinPrice = 0;
         int indexMaxPrice = 0;
 
-        for (int i = 1; i < hourlyPrice.length; i++) {
+        for (int i = 0; i < hourlyPrice.length; i++) {
             if (hourlyPrice[i] < hourlyPrice[indexMinPrice]) {
                 indexMinPrice = i;
             }
