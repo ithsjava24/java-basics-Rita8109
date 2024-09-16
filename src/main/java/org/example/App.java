@@ -57,7 +57,7 @@ public class App {
 
         hourlyPrice = new int[24];
         for (int i = 0; i < hourlyPrice.length; i++) {
-            System.out.print(String.format("%02d-%02d: ", i, i + 1));
+            System.out.print(printHour(i) + ": ");
             hourlyPrice[i] = scanner.nextInt();
         }
     }
@@ -77,8 +77,8 @@ public class App {
                 indexMaxPrice = i;
             }
         }
-        System.out.println("Lägsta pris: " + hourlyPrice[indexMinPrice] + "öre/kWh");
-        System.out.println("Högsta pris: " + hourlyPrice[indexMaxPrice] + "öre/kWh");
+        System.out.println("Lägsta pris: " + printHour(indexMinPrice) + ", " + hourlyPrice[indexMinPrice] + " öre/kWh");
+        System.out.println("Högsta pris: " + printHour(indexMaxPrice) + ", " + hourlyPrice[indexMaxPrice] + " öre/kWh");
         //System.out.println("Medelpris:");
     }
 
@@ -93,5 +93,8 @@ public class App {
 
     }
 
+    private static String printHour(int i) {
+        return String.format("%02d-%02d", i, i + 1);
+    }
 
 }
