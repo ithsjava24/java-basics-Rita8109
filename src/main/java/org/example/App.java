@@ -31,7 +31,7 @@ public class App {
                     gatherInput();
                     break;
                 case "2":
-                    analyze();
+                    calculate();
                     break;
                 case "3":
                     sortPrices();
@@ -63,7 +63,7 @@ public class App {
     }
 
     // 2
-    private static void analyze() {
+    private static void calculate() {
         System.out.println("2. Min, Max och Medel");
 
         int indexMinPrice = 0;
