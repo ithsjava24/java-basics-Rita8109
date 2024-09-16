@@ -69,6 +69,7 @@ public class App {
 
         int indexMinPrice = 0;
         int indexMaxPrice = 0;
+        int sum = 0;
 
         for (int i = 0; i < hourlyPrice.length; i++) {
             if (hourlyPrice[i] < hourlyPrice[indexMinPrice]) {
@@ -77,10 +78,14 @@ public class App {
             if (hourlyPrice[i] > hourlyPrice[indexMaxPrice]) {
                 indexMaxPrice = i;
             }
+            sum += hourlyPrice[i];
         }
+
+        double averagePrice = (double) sum / hourlyPrice.length;
+
         System.out.println("Lägsta pris: " + printHour(indexMinPrice) + ", " + hourlyPrice[indexMinPrice] + " öre/kWh");
         System.out.println("Högsta pris: " + printHour(indexMaxPrice) + ", " + hourlyPrice[indexMaxPrice] + " öre/kWh");
-        //System.out.println("Medelpris:");
+        System.out.println("Medelpris: " + String.format("%.2f", averagePrice) + " öre/kWh");
     }
 
     // 3
