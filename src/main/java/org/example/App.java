@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class App {
 
+    private static Scanner scanner;
+
     private static final String MENU = """
             Elpriser
             ========
@@ -17,7 +19,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
         // Print Menu by using switch statement
         while (true) {
@@ -51,7 +53,6 @@ public class App {
     // 1
     private static void gatherInput() {
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("1. Inmatning");
         System.out.println("Vänligen fyll i pris per timme");
 
