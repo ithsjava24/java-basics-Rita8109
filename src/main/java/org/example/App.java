@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class App {
 
+    private static int[] places =
+            {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23};
     private static Scanner scanner;
 
     private static final String MENU = """
@@ -90,12 +92,30 @@ public class App {
     // 3
     private static void sortPrices() {
         System.out.println("3. Sortera");
+
+        for (int i = 0; i < places.length; i++) {
+            for (int j = 0; j < places.length - 1; j++) {
+                if (hourlyPrice[places[j]] < hourlyPrice[places[j + 1]]) {
+                    swapPlaces(j, j + 1);
+                }
+            }
+        }
+
+        for (int place : places) {
+            System.out.print(printHour(place) + " " + hourlyPrice[place] + " öre\n");
+        }
     }
 
     // 4
     private static void bestLoadTime() {
         System.out.println("4. Bästa Laddningstid (4)");
 
+    }
+
+    private static void swapPlaces(int a, int b) {
+        int temp = places[a];
+        places[a] = places[b];
+        places[b] = temp;
     }
 
     private static String printHour(int i) {
