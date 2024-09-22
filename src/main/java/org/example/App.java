@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
@@ -20,6 +21,8 @@ public class App {
     private static int[] hourlyPrice;
 
     public static void main(String[] args) {
+
+        Locale.setDefault(new Locale("sv", "SE"));
 
         scanner = new Scanner(System.in);
 
@@ -110,6 +113,27 @@ public class App {
     private static void bestLoadTime() {
         System.out.println("4. Bästa Laddningstid (4)");
 
+        double[] averagePrices = new double[24];
+
+        // Calculate average load time prices:
+        for (int i = 0; i < hourlyPrice.length; i++) {
+            averagePrices[i] = (hourlyPrice[i % 24] + hourlyPrice[(i + 1) % 24] + hourlyPrice[(i + 2) % 24] + hourlyPrice[(i + 3) % 24]) / 4.0;
+        }
+
+        //  Find lowest average:
+        int minStartHour = 0;
+        for (int i = 1; i < averagePrices.length; i++) {
+            if (averagePrices[i] < averagePrices[minStartHour]) {
+                minStartHour = i;
+            }
+        }
+
+        String response = """
+                Påbörja laddning klockan %d
+                Medelpris 4h: %.1f öre/kWh
+                """;
+
+        System.out.printf(response, minStartHour, averagePrices[minStartHour]);
     }
 
     private static void swapPlaces(int a, int b) {
