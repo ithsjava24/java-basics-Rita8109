@@ -46,7 +46,6 @@ public class App {
                 default:
                     System.out.println("Invalid choice");
             }
-
         }
     }
 
@@ -83,9 +82,9 @@ public class App {
 
         double averagePrice = (double) sum / hourlyPrice.length;
 
-        System.out.println("Lägsta pris: " + printHour(indexMinPrice) + ", " + hourlyPrice[indexMinPrice] + " öre/kWh");
-        System.out.println("Högsta pris: " + printHour(indexMaxPrice) + ", " + hourlyPrice[indexMaxPrice] + " öre/kWh");
-        System.out.println("Medelpris: " + String.format("%.2f", averagePrice) + " öre/kWh");
+        System.out.print("Lägsta pris: " + printHour(indexMinPrice) + ", " + hourlyPrice[indexMinPrice] + " öre/kWh\n");
+        System.out.print("Högsta pris: " + printHour(indexMaxPrice) + ", " + hourlyPrice[indexMaxPrice] + " öre/kWh\n");
+        System.out.print("Medelpris: " + String.format("%.2f", averagePrice) + " öre/kWh\n");
     }
 
     // 3
@@ -102,5 +101,4 @@ public class App {
     private static String printHour(int i) {
         return String.format("%02d-%02d", i, i + 1);
     }
-
 }
